@@ -39,17 +39,24 @@ header {
 	top: 0;
 }
 
+.navigation {
+	text-align: center;
+	position: relative;
+	top: -4em;
+}
+
 .navigation ul {
 	padding: 0;
 	li {
 		list-style-type: none;
 		display: inline-block;
 		text-align: center;
+		position: relative;
 	}
 	a {
-		display: inline-block;
+		display: block;
 		padding: .5em 1em;
-		border-bottom: 1px solid $light-grey;
+		border-bottom: none;
 		text-decoration: none;
 		color:$text-color;
 		text-align: center;
@@ -72,13 +79,22 @@ header {
 		@include element-invisible;
 	}
 }
+.close-btn{
+	position: absolute;
+	left: -10em;
+}
 .dropdown {
     position: relative;
-    display: inline-block;
+    display: block;
+	top: 1em;
+	left: 1em;
+	&:hover{
+		background-color: green;
+	}
 	&:hover ~ .dropdown-content {
-    	display: inline-block;
+    	display: block;
 		color: purple;
-}
+	}
 }
 
 .dropdown-content {
@@ -89,6 +105,7 @@ header {
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     padding: 12px 16px;
     z-index: 1;
+	top: 2.5em;
 
 }
 .dropdown:hover .dropdown-content {
@@ -113,7 +130,7 @@ header {
 		}
 
 		&[data-state="slide-open"] .sliding-canvas{
-			transform: translateX(-100%);
+			transform: translateX(100%);
 		}
 		&[data-state="slide-open"] {
 			overflow: visible;
@@ -123,14 +140,30 @@ header {
 	//Navigation
 	.slide-menu{
 		position: absolute;
-		width: 100%;
-		right: -100%;
+		width: 20%;
+		left: -1%;
 		top: 0;
 		bottom: 0;
 		height: 100%;
 		padding: 0;
 		min-height: 800px;
 	
+	}
+	.navigation ul {
+	padding: 0;
+		li {
+			list-style-type: none;
+			display: block;
+			text-align: center;
+		}
+		a {
+			display: block;
+			padding: .5em 1em;
+			border-bottom: none;
+			text-decoration: none;
+			color:white;
+			text-align: left;
+		}
 	}
 }//min width media-query
 //reset page when desktop even if nav is toggled down
